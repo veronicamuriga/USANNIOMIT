@@ -1,2 +1,5 @@
 SUMMARY OF CHANGES:
-just changed normalization = False, and set # of locations to equal 2 
+
+changed normalization = False (in datareader.py) (no normalization whatsoever)
+
+tried using a counter variable in datahandler.py to only load 2 locations from the dataset
