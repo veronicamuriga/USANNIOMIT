@@ -91,7 +91,7 @@ class datareader:
             print('[!] File cannot be saved, format not supported!')
 
     @staticmethod
-    def generator(index,dataset, batch_size, t_len, img_shape, normalize=True):
+    def generator(index,dataset, batch_size, t_len, img_shape, normalize=False):
         '''
             generate training data
             note: bands is [x,y] where x and y are the bands to be normalized as in normalized_difference

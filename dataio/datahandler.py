@@ -56,10 +56,15 @@ class datahandler:
         geo_locations = glob.glob(os.path.join(self.dataset_root, '*'))
 
         paths = {}
+	counter = 0
+	num_locations = 2
         for i, c in tqdm(enumerate(geo_locations), disable=not(verbose), colour='blue'):
-            imgs_c = glob.glob(os.path.join(c, '*'))
+            counter += 1
+	    imgs_c = glob.glob(os.path.join(c, '*'))
             imgs_c.sort()
             paths[c.split(os.sep)[-1]] = imgs_c
+	    if counter >= num_locations:
+		break
 
         return paths
     
