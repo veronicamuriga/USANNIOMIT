@@ -1,0 +1,2 @@
+SUMMARY OF CHANGES:
+just changed normalization = False, and set # of locations to equal 2 
