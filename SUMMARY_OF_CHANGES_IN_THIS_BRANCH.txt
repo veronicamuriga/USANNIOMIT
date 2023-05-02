@@ -3,3 +3,5 @@ SUMMARY OF CHANGES:
 changed normalization = False (in datareader.py) (no normalization whatsoever)
 
 tried using a counter variable in datahandler.py to only load 2 locations from the dataset
+
+changed BATCH_SIZE to 1 by changing LSTM_CFG in config.py to 1 instead of 100 (self.bs was set to 10 and then multiplied by 10, so i just changed it to 1)

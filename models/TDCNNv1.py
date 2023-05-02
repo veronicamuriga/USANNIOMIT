@@ -132,17 +132,17 @@ class TDCNNv1:
                                          normalize=normalize)                            
                                     
         NDVIval2 = datareader.generatorv2('NDVI',val_set,
-                                           self.bs*10,
+                                           self.bs,
                                            self.t_len,
                                            self.shape,
                                            normalize=normalize)
         NDWIval2 = datareader.generatorv2('NDWI',val_set,
-                                           self.bs*10,
+                                           self.bs,
                                            self.t_len,
                                            self.shape,
                                            normalize=normalize)
         NDDIval2 = datareader.generatorv2('NDDI',val_set,
-                                           self.bs*10,
+                                           self.bs,
                                            self.t_len,
                                            self.shape,
                                            normalize=normalize)

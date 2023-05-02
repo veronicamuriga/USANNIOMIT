@@ -6,10 +6,16 @@
 #####################################################################################################
 
 
-PATH_TO_DATASET = 'INSERT'
-path_save_NDWI_results = 'INSERT'
-path_save_NDVI_results = 'INSERT'
-path_save_NDDI_results = 'INSERT'
+# PATH_TO_DATASET = 'INSERT'
+# path_save_NDWI_results = 'INSERT'
+# path_save_NDVI_results = 'INSERT'
+# path_save_NDDI_results = 'INSERT'
+
+PATH_TO_DATASET = '/home/veronica/USANNIOMIT/sen2dwater_combined'
+path_save_NDWI_results = '/home/veronica/USANNIOMIT/ndwi'
+path_save_NDVI_results = '/home/veronica/USANNIOMIT/ndvi'
+path_save_NDDI_results = '/home/veronica/USANNIOMIT/nddi'
+
 
 
 #####################################################################################################

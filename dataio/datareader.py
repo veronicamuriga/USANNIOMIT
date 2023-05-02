@@ -151,7 +151,7 @@ class datareader:
                 raise
             
     @staticmethod
-    def generatorv2(index, dataset, batch_size, t_len, img_shape, normalize=True):
+    def generatorv2(index, dataset, batch_size, t_len, img_shape, normalize=False):
         '''
             TO-DO
         '''
@@ -164,6 +164,9 @@ class datareader:
 
         dataset = list(dataset.values())
         rdn = (len(dataset)//batch_size)-batch_size
+        print("dataset: ", len(dataset))
+        print("batch_size: ", batch_size)
+        
         
         for b in range(batch_size):
             paths = dataset[b]

@@ -52,19 +52,18 @@ class datahandler:
             Output:
                 - paths: python dictionary, keys==locations, values==paths of timeseries
         '''
-
-        geo_locations = glob.glob(os.path.join(self.dataset_root, '*'))
+        NUM_LOCATIONS = 2
+        geo_locations = glob.glob(os.path.join(self.dataset_root, '*'))[:NUM_LOCATIONS]
 
         paths = {}
-	counter = 0
-	num_locations = 2
+        # counter = 0
         for i, c in tqdm(enumerate(geo_locations), disable=not(verbose), colour='blue'):
-            counter += 1
-	    imgs_c = glob.glob(os.path.join(c, '*'))
+            # counter += 1
+            imgs_c = glob.glob(os.path.join(c, '*'))
             imgs_c.sort()
             paths[c.split(os.sep)[-1]] = imgs_c
-	    if counter >= num_locations:
-		break
+            # if counter >= num_locations:
+            #     break
 
         return paths
     
@@ -84,7 +83,7 @@ class datahandler:
         # added this to make training faster
         # l = int(l/4)
 
-        vl = int(l*split_factor)
+        vl = max(1, int(l*split_factor))
         tl = l - vl
 
         train_set = {k:self.paths[k] for k in list(self.paths.keys())[:tl]}
