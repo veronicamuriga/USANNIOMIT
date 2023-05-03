@@ -53,7 +53,9 @@ class datahandler:
                 - paths: python dictionary, keys==locations, values==paths of timeseries
         '''
         NUM_LOCATIONS = 2
-        geo_locations = glob.glob(os.path.join(self.dataset_root, '*'))[:NUM_LOCATIONS]
+        # geo_locations = glob.glob(os.path.join(self.dataset_root, '*'))[:NUM_LOCATIONS]
+        geo_locations = glob.glob(os.path.join(self.dataset_root, '*'))
+
 
         paths = {}
         # counter = 0
