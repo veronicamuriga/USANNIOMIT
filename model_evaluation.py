@@ -159,7 +159,7 @@ def plot_inputs():
 		axes[1,i].axis(False)
 
 	fig.tight_layout()
-	plt.savefig('ndvi.png')
+	plt.savefig('/home/veronica/USANNIOMIT/img/ndvi.png')
 	# plt.show()
 	plt.close()
 
@@ -175,7 +175,7 @@ def plot_inputs():
 		axes[1,i].axis(False)
 
 	fig.tight_layout()
-	plt.savefig('ndmi.png')
+	plt.savefig('/home/veronica/USANNIOMIT/img/ndmi.png')
 	# plt.show()
 	plt.close()
 
@@ -191,7 +191,7 @@ def plot_inputs():
 		axes[2,i].axis(False)
 
 	fig.tight_layout()
-	plt.savefig('nddi.png')
+	plt.savefig('/home/veronica/USANNIOMIT/img/nddi.png')
 	# plt.show()
 	plt.close()
 
