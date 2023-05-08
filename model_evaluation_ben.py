@@ -14,17 +14,17 @@ from tensorflow.keras.models import load_model
 import numpy as np
 import sklearn.preprocessing
 
-dataset_root_path = '/home/veronica/USANNIOMIT/sen2dwater_combined' # adjust to the correct one
+dataset_root_path = '/home/mers/Desktop/UsannioGit/USANNIOMIT/SEN2DWATER' # adjust to the correct one
 
-BATCH_SIZE = 50
-# BATCH_SIZE = 70
+BATCH_SIZE = 10
+#BATCH_SIZE = 70
 SHAPE      = (64,64)
 NORMALIZE  = True
 SCALE = False
 
-NDMI_MODEL_PATH = '/home/veronica/USANNIOMIT/ndwi_model2.h5'
-NDVI_MODEL_PATH = '/home/veronica/USANNIOMIT/ndvi_model2.h5'
-NDDI_MODEL_PATH = '/home/veronica/USANNIOMIT/nddi_model2.h5'
+NDMI_MODEL_PATH = '/home/mers/Desktop/UsannioGit/USANNIOMIT/ndwi_model2.h5'
+NDVI_MODEL_PATH = '/home/mers/Desktop/UsannioGit/USANNIOMIT/ndvi_model2.h5'
+NDDI_MODEL_PATH = '/home/mers/Desktop/UsannioGit/USANNIOMIT/nddi_model2.h5'
 
 
 '''
@@ -62,72 +62,72 @@ def getNDDI(NDVI,NDWI):
 plotting
 '''
 
-def plot_results(NDVI_gt, ndvi_prediction, NDWI_gt, ndwi_prediction, NDDI_gt, nddi_prediction, nddi_from_ndmi_pred_and_ndvi_pred, NDDItheoreticGT):
-	fig, axes = plt.subplots(nrows = 2, ncols = BATCH_SIZE, figsize = (BATCH_SIZE*5,3*5))
-	for i in range(BATCH_SIZE):
-		axes[0,i].imshow(ndvi_prediction[i,:,:,0])
-		axes[1,i].imshow(NDVI_gt[i,:,:,0])
+# def plot_results(NDVI_gt, ndvi_prediction, NDWI_gt, ndwi_prediction, NDDI_gt, nddi_prediction, nddi_from_ndmi_pred_and_ndvi_pred, NDDItheoreticGT):
+# 	fig, axes = plt.subplots(nrows = 2, ncols = BATCH_SIZE, figsize = (BATCH_SIZE*5,3*5))
+# 	for i in range(BATCH_SIZE):
+# 		axes[0,i].imshow(ndvi_prediction[i,:,:,0])
+# 		axes[1,i].imshow(NDVI_gt[i,:,:,0])
 
-		axes[0,i].set_title('NDVI Prediction')
-		axes[1,i].set_title('NDVI Ground Truth')
+# 		axes[0,i].set_title('NDVI Prediction')
+# 		axes[1,i].set_title('NDVI Ground Truth')
 
-		axes[0,i].axis(False)
-		axes[1,i].axis(False)
+# 		axes[0,i].axis(False)
+# 		axes[1,i].axis(False)
 
-	fig.tight_layout()
-	plt.savefig('/home/veronica/USANNIOMIT/img/ndvi.png')
-	plt.show()
-	plt.close()
+# 	fig.tight_layout()
+# 	plt.savefig('/home/mers/Desktop/UsannioGit/USANNIOMIT/ndvi.png')
+# 	plt.show()
+# 	plt.close()
 
-	fig, axes = plt.subplots(nrows = 2, ncols = BATCH_SIZE, figsize = (BATCH_SIZE*5,3*5))
-	for i in range(BATCH_SIZE):
-		axes[0,i].imshow(ndwi_prediction[i,:,:,0])
-		axes[1,i].imshow(NDWI_gt[i,:,:,0])
+# 	fig, axes = plt.subplots(nrows = 2, ncols = BATCH_SIZE, figsize = (BATCH_SIZE*5,3*5))
+# 	for i in range(BATCH_SIZE):
+# 		axes[0,i].imshow(ndwi_prediction[i,:,:,0])
+# 		axes[1,i].imshow(NDWI_gt[i,:,:,0])
 
-		axes[0,i].set_title('NDWI Prediction')
-		axes[1,i].set_title('NDWI Ground Truth')
+# 		axes[0,i].set_title('NDWI Prediction')
+# 		axes[1,i].set_title('NDWI Ground Truth')
 
-		axes[0,i].axis(False)
-		axes[1,i].axis(False)
+# 		axes[0,i].axis(False)
+# 		axes[1,i].axis(False)
 
-	fig.tight_layout()
-	plt.savefig('/home/veronica/USANNIOMIT/img/ndmi.png')
-	plt.show()
-	plt.close()
+# 	fig.tight_layout()
+# 	plt.savefig('/home/mers/Desktop/UsannioGit/USANNIOMIT/ndmi.png')
+# 	plt.show()
+# 	plt.close()
 
-	fig, axes = plt.subplots(nrows = 3, ncols = BATCH_SIZE, figsize = (BATCH_SIZE*5,3*5))
-	for i in range(BATCH_SIZE):
-		axes[0,i].imshow(nddi_prediction[i,:,:,0])
-		axes[1,i].imshow(NDDI_gt[i,:,:,0])
-		axes[2,i].imshow(NDDItheoreticGT[i,:,:,0])
+# 	fig, axes = plt.subplots(nrows = 3, ncols = BATCH_SIZE, figsize = (BATCH_SIZE*5,3*5))
+# 	for i in range(BATCH_SIZE):
+# 		axes[0,i].imshow(nddi_prediction[i,:,:,0])
+# 		axes[1,i].imshow(NDDI_gt[i,:,:,0])
+# 		axes[2,i].imshow(NDDItheoreticGT[i,:,:,0])
 
-		axes[0,i].set_title('NDDI Prediction')
-		axes[1,i].set_title('NDDI Ground Truth')
-		axes[2,i].set_title('NDDI Theoretic GT')
+# 		axes[0,i].set_title('NDDI Prediction')
+# 		axes[1,i].set_title('NDDI Ground Truth')
+# 		axes[2,i].set_title('NDDI Theoretic GT')
 
-		axes[0,i].axis(False)
-		axes[1,i].axis(False)
-		axes[2,i].axis(False)
+# 		axes[0,i].axis(False)
+# 		axes[1,i].axis(False)
+# 		axes[2,i].axis(False)
 
-	fig.tight_layout()
-	plt.savefig('/home/veronica/USANNIOMIT/img/nddi.png')
-	plt.show()
-	plt.close()
+# 	fig.tight_layout()
+# 	plt.savefig('/home/mers/Desktop/UsannioGit/USANNIOMIT/nddi.png')
+# 	plt.show()
+# 	plt.close()
 
-	fig, axes = plt.subplots(nrows = 2, ncols = BATCH_SIZE, figsize = (BATCH_SIZE*5,3*5))
-	for i in range(BATCH_SIZE):
-		axes[0,i].imshow(nddi_from_ndmi_pred_and_ndvi_pred[i,:,:,0])
-		axes[1,i].imshow(NDDI_gt[i,:,:,0])
+# 	fig, axes = plt.subplots(nrows = 2, ncols = BATCH_SIZE, figsize = (BATCH_SIZE*5,3*5))
+# 	for i in range(BATCH_SIZE):
+# 		axes[0,i].imshow(nddi_from_ndmi_pred_and_ndvi_pred[i,:,:,0])
+# 		axes[1,i].imshow(NDDI_gt[i,:,:,0])
 
-		axes[0,i].set_title('NDDI Prediction from NDVI and NDWI')
-		axes[1,i].set_title('NDDI Ground Truth')
+# 		axes[0,i].set_title('NDDI Prediction from NDVI and NDWI')
+# 		axes[1,i].set_title('NDDI Ground Truth')
 
-		axes[0,i].axis(False)
-		axes[1,i].axis(False)
+# 		axes[0,i].axis(False)
+# 		axes[1,i].axis(False)
 
-	fig.tight_layout()
-	plt.show()
-	plt.close()
+# 	fig.tight_layout()
+# 	plt.show()
+# 	plt.close()
 
 def plot_inputs():
 	dh = datahandler(dataset_root_path)
@@ -159,7 +159,7 @@ def plot_inputs():
 		axes[1,i].axis(False)
 
 	fig.tight_layout()
-	plt.savefig('/home/veronica/USANNIOMIT/img/ndvi.png')
+	plt.savefig('/home/mers/Desktop/UsannioGit/USANNIOMIT/ndvi.png')
 	# plt.show()
 	plt.close()
 
@@ -175,7 +175,7 @@ def plot_inputs():
 		axes[1,i].axis(False)
 
 	fig.tight_layout()
-	plt.savefig('/home/veronica/USANNIOMIT/img/ndmi.png')
+	plt.savefig('/home/mers/Desktop/UsannioGit/USANNIOMIT/ndmi.png')
 	# plt.show()
 	plt.close()
 

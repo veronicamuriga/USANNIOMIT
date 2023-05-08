@@ -11,10 +11,10 @@
 # path_save_NDVI_results = 'INSERT'
 # path_save_NDDI_results = 'INSERT'
 
-PATH_TO_DATASET = '/home/veronica/USANNIOMIT/sen2dwater_combined'
-path_save_NDWI_results = '/home/veronica/USANNIOMIT/ndwi'
-path_save_NDVI_results = '/home/veronica/USANNIOMIT/ndvi'
-path_save_NDDI_results = '/home/veronica/USANNIOMIT/nddi'
+PATH_TO_DATASET = '/home/mers/Desktop/UsannioGit/USANNIOMIT/SEN2DWATER'
+path_save_NDWI_results = '/home/mers/Desktop/UsannioGit/USANNIOMIT/ndwi_model.model.h5'
+path_save_NDVI_results = '/home/mers/Desktop/UsannioGit/USANNIOMIT/ndvi_model.model.h5'
+path_save_NDDI_results = '/home/mers/Desktop/UsannioGit/USANNIOMIT/nddi_model.model.h5'
 
 
 
