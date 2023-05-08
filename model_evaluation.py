@@ -16,7 +16,7 @@ import sklearn.preprocessing
 
 dataset_root_path = '/home/veronica/USANNIOMIT/sen2dwater_combined' # adjust to the correct one
 
-BATCH_SIZE = 10
+BATCH_SIZE = 50
 # BATCH_SIZE = 70
 SHAPE      = (64,64)
 NORMALIZE  = True
@@ -55,7 +55,7 @@ def scaler(arr):
 get theoretic NDDI value 
 '''
 def getNDDI(NDVI,NDWI):
-	return (NDVI-NDWI)/(NDVI+NDWI+0.0001)
+	return (NDVI-NDWI)/(NDVI+NDWI+1)
 
 
 '''

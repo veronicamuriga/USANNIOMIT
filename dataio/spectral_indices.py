@@ -2,6 +2,7 @@ import numpy as np
 
 
 class spectral_indices:
+    
 
     @staticmethod
     def normalized_difference(img, bands):
@@ -22,7 +23,7 @@ class spectral_indices:
 
             e ~= 0.00001 to stabilize division with weak denominator.
         '''
-        
+        SMALL_VALUE = 1
         # Select image bands
         b1 = img[:,:,bands[0]]
         b2 = img[:,:,bands[1]]
@@ -32,7 +33,7 @@ class spectral_indices:
         b2[np.isnan(b2)] = 0
 
         # Apply formula
-        nd = (b1 - b2)/ ((b1 + b2) + 0.00001)
+        nd = (b1 - b2)/ ((b1 + b2) + SMALL_VALUE)
 
         return nd
 
@@ -53,7 +54,7 @@ class spectral_indices:
                                 nd = (b1 - a*b2 - (1-a)*b3)/((b1 + a*b2 + (1-a)*b3) + e)
             e ~= 0.00001 to stabilize division with weak denominator.
         '''
-        
+        SMALL_VALUE = 1
         # Select image bands
         b1 = img[:,:,bands[0]]
         b2 = img[:,:,bands[1]]
@@ -66,7 +67,7 @@ class spectral_indices:
 
 
         # Apply formula
-        wnd = (b1 - a*b2 - (1-a)*b3)/ ((b1 + a*b2 + (1-a)*b3) + 0.00001)
+        wnd = (b1 - a*b2 - (1-a)*b3)/ ((b1 + a*b2 + (1-a)*b3) + SMALL_VALUE)
 
         return wnd
 
@@ -98,6 +99,7 @@ class spectral_indices:
         #         globMax = maxRow
         # NDDI /= globMax
         # return NDDI
-        return (NDVI - NDWI) / (NDVI + NDWI + 0.00001)
+        SMALL_VALUE = 1
+        return (NDVI - NDWI) / (NDVI + NDWI + SMALL_VALUE)
 
 
