@@ -74,12 +74,12 @@ tdcnnv1.generateData(train_set, val_set)
 # tdcnnv1.model.save('/content/drive/MyDrive/sen2dwater/USANNIOMIT/tdcnnv1.model.h5')
 
 # ================================ train on NDWI ==================================  #
-ndwi_history, ndwi_model = tdcnnv1.train('NDWI', train_set, val_set, normalize = True)
-ndwi_model.save(path_save_NDWI_results)
+# ndwi_history, ndwi_model = tdcnnv1.train('NDWI', train_set, val_set, normalize = True)
+# ndwi_model.save(path_save_NDWI_results)
 
 # ================================ train on NDVI ==================================  #
-ndvi_history, ndvi_model = tdcnnv1.train('NDVI', train_set, val_set, normalize = True)
-ndvi_model.save(path_save_NDVI_results)
+# ndvi_history, ndvi_model = tdcnnv1.train('NDVI', train_set, val_set, normalize = True)
+# ndvi_model.save(path_save_NDVI_results)
 
 # ================================ train on NDDI ==================================  #
 nddi_history, nddi_model = tdcnnv1.train('NDDI', train_set, val_set, normalize = True)
