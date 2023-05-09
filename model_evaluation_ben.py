@@ -64,6 +64,7 @@ plotting
 '''
 
 def plot_results(NDVI_gt, ndvi_prediction, NDWI_gt, ndwi_prediction, NDDI_gt, nddi_prediction, nddi_from_ndmi_pred_and_ndvi_pred, NDDItheoreticGT):
+	print('here')
 	fig, axes = plt.subplots(nrows = 2, ncols = BATCH_SIZE, figsize = (BATCH_SIZE*5,3*5))
 	for i in range(BATCH_SIZE):
 		axes[0,i].imshow(ndvi_prediction[i,:,:,0])
@@ -215,17 +216,20 @@ def main(only_plot_inputs = False):
 
 	if SCALE:
 		NDDI_gt = scaler(NDDI_gt)
-
+	print('here11')
 	ndwi_model = load_model(NDMI_MODEL_PATH)
 	ndvi_model = load_model(NDVI_MODEL_PATH)
 	nddi_model = load_model(NDDI_MODEL_PATH)
+	print('here22')
 
 	'''
 	prediction
 	'''
+	print('here1')
 	ndvi_prediction = ndvi_model.predict(NDVI_input)
 	ndwi_prediction = ndwi_model.predict(NDWI_input)
 	nddi_prediction = nddi_model.predict(NDDI_input)
+	print('here2')
 
 	shape = nddi_prediction.shape # Batch (), Width, Height, (NDWI, NNDI or NDVI)
 
@@ -241,4 +245,4 @@ def main(only_plot_inputs = False):
 
 
 
-main(True)
+main()
