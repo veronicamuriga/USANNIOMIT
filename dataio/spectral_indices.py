@@ -55,6 +55,7 @@ class spectral_indices:
             e ~= 0.00001 to stabilize division with weak denominator.
         '''
         SMALL_VALUE = 1
+        #SMALL_VALUE = 0.1
         # Select image bands
         b1 = img[:,:,bands[0]]
         b2 = img[:,:,bands[1]]

@@ -14,7 +14,7 @@
 PATH_TO_DATASET = '/home/mers/Desktop/UsannioGit/USANNIOMIT/SEN2DWATER'
 path_save_NDWI_results = '/home/mers/Desktop/UsannioGit/USANNIOMIT/ndwi_model.model.h5'
 path_save_NDVI_results = '/home/mers/Desktop/UsannioGit/USANNIOMIT/ndvi_model.model.h5'
-path_save_NDDI_results = '/home/mers/Desktop/UsannioGit/USANNIOMIT/nddi_model.model.h5'
+path_save_NDDI_results = '/home/mers/Desktop/UsannioGit/USANNIOMIT/nddi_model.model_small_val_is_point_1.h5'
 
 
 
@@ -91,24 +91,24 @@ nddi_model.save(path_save_NDDI_results)
 #####################################################################################################
 
 
-# might error....
-LEN_SERIES = t_len
-fig, axes = plt.subplots(nrows = 1, ncols = 3, figsize = (4*LEN_SERIES, 4))
+# # might error....
+# LEN_SERIES = t_len
+# fig, axes = plt.subplots(nrows = 1, ncols = 3, figsize = (4*LEN_SERIES, 4))
 
-axes[0].plot(tdcnnv1.model.history.loss, label = 'training loss')
-axes[0].plot(tdcnnv1.model.history['val_loss'], label = 'validation loss')
-axes[0].set_title('Huber Loss')
-axes[0].legend()
+# axes[0].plot(tdcnnv1.model.history.loss, label = 'training loss')
+# axes[0].plot(tdcnnv1.model.history['val_loss'], label = 'validation loss')
+# axes[0].set_title('Huber Loss')
+# axes[0].legend()
 
-axes[1].plot(tdcnnv1.model.history['mae'], label = 'training MAE')
-axes[1].plot(tdcnnv1.model.history['val_mae'], label = 'validation MAE')
-axes[1].set_title('MAE')
-axes[1].legend()
+# axes[1].plot(tdcnnv1.model.history['mae'], label = 'training MAE')
+# axes[1].plot(tdcnnv1.model.history['val_mae'], label = 'validation MAE')
+# axes[1].set_title('MAE')
+# axes[1].legend()
 
-axes[2].plot(tdcnnv1.model.history['mse'], label = 'training MSE')
-axes[2].plot(tdcnnv1.model.history['val_mse'], label = 'validation MSE')
-axes[2].set_title('MSE')
-axes[2].legend()
-plt.savefig(name + 'Training.pdf')
-plt.show()
+# axes[2].plot(tdcnnv1.model.history['mse'], label = 'training MSE')
+# axes[2].plot(tdcnnv1.model.history['val_mse'], label = 'validation MSE')
+# axes[2].set_title('MSE')
+# axes[2].legend()
+# plt.savefig(name + 'Training.pdf')
+# plt.show()
 

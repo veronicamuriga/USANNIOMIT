@@ -17,7 +17,7 @@ import numpy as np
 
 dataset_root_path = '/home/mers/Desktop/UsannioGit/USANNIOMIT/SEN2DWATER' # adjust to the correct one
 
-BATCH_SIZE = 10
+BATCH_SIZE = 20
 #BATCH_SIZE = 70
 SHAPE      = (64,64)
 NORMALIZE  = True
@@ -25,7 +25,7 @@ SCALE = False
 
 NDMI_MODEL_PATH = '/home/mers/Desktop/UsannioGit/USANNIOMIT/ndwi_model2.h5'
 NDVI_MODEL_PATH = '/home/mers/Desktop/UsannioGit/USANNIOMIT/ndvi_model2.h5'
-NDDI_MODEL_PATH = '/home/mers/Desktop/UsannioGit/USANNIOMIT/nddi_model.model.h5'
+NDDI_MODEL_PATH = '/home/mers/Desktop/UsannioGit/USANNIOMIT/nddi_model.model_small_val_is_point_1.h5'
 
 
 '''
