@@ -13,13 +13,12 @@ import numpy as np
 from tensorflow.keras.models import load_model
 import sklearn.preprocessing
 
-
 dataset_root_path = '/home/veronica/USANNIOMIT/sen2dwater_combined' # TODO: adjust path
 dh       = datahandler(dataset_root_path)
 train_set, val_set = dh.split(SPLIT_FACTOR)
 
 
-BATCH_SIZE = 10
+BATCH_SIZE = 70
 SHAPE      = (64,64)
 NORMALIZE  = True
 
@@ -76,12 +75,21 @@ for i in range(shape[0]): # get NDDI from NDWI and NDVI
 NDDItheoreticGT = getNDDI(NDVI_gt,NDWI_gt)
 
 fig, axes = plt.subplots(nrows = 2, ncols = BATCH_SIZE, figsize = (BATCH_SIZE*5,3*5))
-for i in range(BATCH_SIZE):
-  axes[0,i].imshow(ndvi_prediction[i,:,:,0])
-  axes[1,i].imshow(NDVI_gt[i,:,:,0])
+# font = {'family' : 'normal',
+#         'weight' : 'bold',
+#         'size'   : 22}
 
-  axes[0,i].set_title('NDVI Prediction')
-  axes[1,i].set_title('NDVI Ground Truth')
+# matplotlib.rc('font', **font)
+
+# plt.rcParams["font.family"] = "sans-serif"
+plt.rcParams["font.size"] = "8"
+
+for i in range(BATCH_SIZE):
+  axes[1,i].imshow(ndvi_prediction[i,:,:,0])
+  axes[0,i].imshow(NDVI_gt[i,:,:,0])
+
+  axes[1,i].set_title('Pred')
+  axes[0,i].set_title('GT')
 
   axes[0,i].axis(False)
   axes[1,i].axis(False)
@@ -94,14 +102,14 @@ plt.close()
 
 fig, axes = plt.subplots(nrows = 2, ncols = BATCH_SIZE, figsize = (BATCH_SIZE*5,3*5))
 for i in range(BATCH_SIZE):
-  axes[0,i].imshow(ndwi_prediction[i,:,:,0])
-  axes[1,i].imshow(NDWI_gt[i,:,:,0])
+  axes[1,i].imshow(ndwi_prediction[i,:,:,0])
+  axes[0,i].imshow(NDWI_gt[i,:,:,0])
 
-  axes[0,i].set_title('NDWI Prediction')
-  axes[1,i].set_title('NDWI Ground Truth')
+  axes[1,i].set_title('Pred')
+  axes[0,i].set_title('GT')
 
-  axes[0,i].axis(False)
   axes[1,i].axis(False)
+  axes[0,i].axis(False)
 
 fig.tight_layout()
 plt.savefig('img/ndwi.png')
@@ -134,9 +142,9 @@ for i in range(BATCH_SIZE):
   axes[2,i].imshow(nddi_prediction[i,:,:,0])
 
 
-  axes[0,i].set_title('NDDI Ground Truth')
-  axes[1,i].set_title('Computed NDDI')
-  axes[2,i].set_title('Predicted NDDI')
+  axes[0,i].set_title('GT')
+  axes[1,i].set_title('Computed')
+  axes[2,i].set_title('Predicted')
 
   axes[0,i].axis(False)
   axes[1,i].axis(False)

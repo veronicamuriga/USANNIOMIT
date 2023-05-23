@@ -39,7 +39,7 @@ def plot_metrics(model, name = 'index'):
     axes[2].plot(model.history['val_mse'], label = 'validation MSE')
     axes[2].set_title('MSE')
     axes[2].legend()
-    plt.savefig(name + 'Training.pdf')
+    plt.savefig('img/' + name + 'Training.pdf')
     plt.show()
 
 
@@ -54,7 +54,8 @@ ndvi_model = load_model('/home/veronica/USANNIOMIT/ndvi_model2.h5')
 # nddi_model = load_model('/content/drive/MyDrive/results-lenovo2/nddi_model2.h5')
 nddi_model = load_model('/home/veronica/USANNIOMIT/nddi_model.model_small_val_is_point_1.h5')
 
-
+plot_metrics(model = nddi_model, name = 'nddi')
+plot_metrics(model = nddi_model, name = 'nddi')
 plot_metrics(model = nddi_model, name = 'nddi')
 
 # #======================================= Loading the dataset ========================================
