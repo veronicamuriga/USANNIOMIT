@@ -12,13 +12,15 @@ from tensorflow.keras.models import load_model
 import numpy as np
 from tensorflow.keras.models import load_model
 import sklearn.preprocessing
+# %matplotlib qt 
+
 
 dataset_root_path = '/home/veronica/USANNIOMIT/sen2dwater_combined' # TODO: adjust path
 dh       = datahandler(dataset_root_path)
 train_set, val_set = dh.split(SPLIT_FACTOR)
 
 
-BATCH_SIZE = 70
+BATCH_SIZE = 30
 SHAPE      = (64,64)
 NORMALIZE  = True
 
